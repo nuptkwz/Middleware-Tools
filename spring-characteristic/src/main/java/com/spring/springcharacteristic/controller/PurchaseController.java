@@ -1,10 +1,9 @@
 package com.spring.springcharacteristic.controller;
 
-import com.spring.springcharacteristic.aop.LogAnnotation;
-import com.spring.springcharacteristic.aop.Purchase;
+import com.spring.springcharacteristic.aop.LoginAnnotation;
+import com.spring.springcharacteristic.aop.UserService;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,11 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class PurchaseController {
 
     @Setter(onMethod_ = @Autowired)
-    private Purchase purchase;
+    private UserService userService;
 
     @GetMapping()
-    @LogAnnotation
-    public String testBuy() {
-        return purchase.buy();
+    @LoginAnnotation
+    public String userLogin() {
+        return userService.login();
     }
 }

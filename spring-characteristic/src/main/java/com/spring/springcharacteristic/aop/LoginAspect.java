@@ -18,9 +18,9 @@ import java.lang.reflect.Method;
 @Aspect
 @Component
 @Slf4j
-public class LogAspect {
+public class LoginAspect {
 
-    @Around("@annotation(com.spring.springcharacteristic.aop.LogAnnotation)")
+    @Around("@annotation(com.spring.springcharacteristic.aop.LoginAnnotation)")
     public Object aroundOperateLog(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Signature signature = proceedingJoinPoint.getSignature();
         if (!(signature instanceof MethodSignature)) {
@@ -30,10 +30,10 @@ public class LogAspect {
         Method targetMethod = methodSignature.getMethod();
         targetMethod.setAccessible(true);
         Object resVal = null;
-        log.info("方法执行前，打印执行的方法名,方法名:[{}]", targetMethod.getName());
+        log.info("方法执行前，方法名:[{}]", targetMethod.getName());
         try {
             resVal = proceedingJoinPoint.proceed();
-            log.info("方法执行成功，打印执行结果,结果为:[{}]", resVal.toString());
+            log.info("方法执行成功，结果为:[{}]", resVal.toString());
         } catch (Throwable throwable) {
             log.error("方法执行失败", throwable.toString());
         }

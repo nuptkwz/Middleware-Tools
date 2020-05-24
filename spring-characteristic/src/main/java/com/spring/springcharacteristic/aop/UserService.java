@@ -5,12 +5,12 @@ package com.spring.springcharacteristic.aop;
  * Date 2020/5/20 22:33
  * Created by kwz
  */
-public interface Purchase {
+public interface UserService {
 
     /**
      * Description
      * Param []
      * return java.lang.String
      */
-    String buy();
+    String login();
 }
