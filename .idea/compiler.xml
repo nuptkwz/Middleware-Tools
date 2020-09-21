@@ -8,6 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="springboot-mongo" />
         <module name="spring-characteristic" />
+      </profile>
+      <profile name="Annotation profile for springboot-es" enabled="true">
+        <sourceOutputDir name="../demo/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../demo/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
         <module name="springboot-es" />
       </profile>
     </annotationProcessing>
