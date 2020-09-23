@@ -3,8 +3,10 @@ package com.mongo.springbootmongo.service.impl;
 import com.mongo.springbootmongo.dao.CommentRepository;
 import com.mongo.springbootmongo.entity.Comment;
 import com.mongo.springbootmongo.service.CommentService;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
 import java.util.List;
@@ -15,10 +17,12 @@ import java.util.Optional;
  * Date 2020/9/21 22:56
  * Created by kwz
  */
+@Service
+@RequiredArgsConstructor
 public class CommentServiceImpl implements CommentService {
 
-    @Setter(onMethod_ = @Autowired)
-    private CommentRepository commentRepository;
+
+    private final CommentRepository commentRepository;
 
     @Override
     public void saveComment(Comment comment) {
