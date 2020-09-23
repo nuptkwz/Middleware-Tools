@@ -15,9 +15,9 @@ public interface CommentService {
      * 保存一个评论
      * Description
      * Param [comment]
-     * return void
+     * return Comment
      */
-    void saveComment(Comment comment);
+    Comment saveComment(Comment comment);
 
     /**
      * 更新评论

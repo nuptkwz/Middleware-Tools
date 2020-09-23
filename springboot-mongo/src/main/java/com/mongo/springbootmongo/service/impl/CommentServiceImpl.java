@@ -4,11 +4,8 @@ import com.mongo.springbootmongo.dao.CommentRepository;
 import com.mongo.springbootmongo.entity.Comment;
 import com.mongo.springbootmongo.service.CommentService;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,12 +18,11 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CommentServiceImpl implements CommentService {
 
-
     private final CommentRepository commentRepository;
 
     @Override
-    public void saveComment(Comment comment) {
-        commentRepository.save(comment);
+    public Comment saveComment(Comment comment) {
+        return commentRepository.save(comment);
     }
 
     @Override
@@ -35,17 +31,17 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public void deleteCommentById(String id) {//调用
+    public void deleteCommentById(String id) {
         commentRepository.deleteById(id);
     }
 
     @Override
-    public List<Comment> findCommentList() {//调用
+    public List<Comment> findCommentList() {
         return commentRepository.findAll();
     }
 
     @Override
-    public Optional<Comment> findCommentById(String id) {//调用
+    public Optional<Comment> findCommentById(String id) {
         return commentRepository.findById(id);
     }
 
