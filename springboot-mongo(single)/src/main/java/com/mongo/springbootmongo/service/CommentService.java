@@ -1,6 +1,7 @@
 package com.mongo.springbootmongo.service;
 
 import com.mongo.springbootmongo.entity.Comment;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,8 +13,7 @@ import java.util.Optional;
  */
 public interface CommentService {
     /**
-     * 保存一个评论
-     * Description
+     * Description保存一个评论
      * Param [comment]
      * return Comment
      */
@@ -28,27 +28,31 @@ public interface CommentService {
     void updateComment(Comment comment);
 
     /**
-     * 根据id删除评论
-     * Description
+     * Description 根据id删除评论
      * Param [id]
      * return void
      */
     void deleteCommentById(String id);
 
     /**
-     * 查询所有评论
-     * Description
+     * Description 查询所有评论
      * Param []
      * return java.util.List<com.mongo.springbootmongo.entity.Comment>
      */
     List<Comment> findCommentList();
 
     /**
-     * 根据id查询评论
-     * Description
+     * Description 根据id查询评论
      * Param [id]
      * return com.mongo.springbootmongo.entity.Comment
      */
     Optional<Comment> findCommentById(String id);
 
+    /**
+     * Description 分页（根据articleId去查询）
+     * <p>
+     * Param [parentId, page, size]
+     * return org.springframework.data.domain.Page<com.mongo.springbootmongo.entity.Comment>
+     */
+    Page<Comment> findByArticleId(String parentId, int page, int size);
 }

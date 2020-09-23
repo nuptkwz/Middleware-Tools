@@ -4,6 +4,8 @@ import com.mongo.springbootmongo.dao.CommentRepository;
 import com.mongo.springbootmongo.entity.Comment;
 import com.mongo.springbootmongo.service.CommentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -43,6 +45,11 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Optional<Comment> findCommentById(String id) {
         return commentRepository.findById(id);
+    }
+
+    @Override
+    public Page<Comment> findByArticleId(String articleId, int page, int size) {
+        return commentRepository.findByArticleId(articleId, PageRequest.of(page - 1, size));
     }
 
 }
