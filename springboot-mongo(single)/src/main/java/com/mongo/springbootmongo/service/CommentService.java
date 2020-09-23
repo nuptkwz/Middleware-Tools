@@ -55,4 +55,11 @@ public interface CommentService {
      * return org.springframework.data.domain.Page<com.mongo.springbootmongo.entity.Comment>
      */
     Page<Comment> findByArticleId(String parentId, int page, int size);
+
+    /**
+     * Description
+     * Param [id]
+     * return void
+     */
+    void updateCommentLikeNum(String id);
 }

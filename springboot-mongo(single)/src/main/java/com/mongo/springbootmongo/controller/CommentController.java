@@ -30,4 +30,10 @@ public class CommentController {
 
         return Result.success(commentService.findCommentList());
     }
+
+    @PutMapping("/{id}/likeNum")
+    public Result updateCommentLikeNum(@PathVariable String id){
+        commentService.updateCommentLikeNum(id);
+        return Result.success();
+    }
 }

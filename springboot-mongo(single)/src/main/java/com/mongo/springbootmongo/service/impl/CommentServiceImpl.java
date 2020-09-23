@@ -1,5 +1,6 @@
 package com.mongo.springbootmongo.service.impl;
 
+import com.mongo.springbootmongo.dao.CommentDao;
 import com.mongo.springbootmongo.dao.CommentRepository;
 import com.mongo.springbootmongo.entity.Comment;
 import com.mongo.springbootmongo.service.CommentService;
@@ -21,6 +22,7 @@ import java.util.Optional;
 public class CommentServiceImpl implements CommentService {
 
     private final CommentRepository commentRepository;
+    private final CommentDao commentDao;
 
     @Override
     public Comment saveComment(Comment comment) {
@@ -50,6 +52,11 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Page<Comment> findByArticleId(String articleId, int page, int size) {
         return commentRepository.findByArticleId(articleId, PageRequest.of(page - 1, size));
+    }
+
+    @Override
+    public void updateCommentLikeNum(String id) {
+        commentDao.updateCommentLikeNum(id);
     }
 
 }
