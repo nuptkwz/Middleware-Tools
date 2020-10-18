@@ -6,3 +6,5 @@ Spring特性
 SpringBoot集成MongoDB
 # springBoot-Es
 SpringBoot集成Es
+# springBoot-Redis
+SpringBoot集成Redis
